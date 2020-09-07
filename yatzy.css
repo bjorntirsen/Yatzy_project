@@ -2,11 +2,35 @@
     float: left;
     margin-left: 50px;
 }
+
 .logo-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 300px;
+}
+
+.login-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding: 16px;
+}
+
+input.login[type=text],
+input.login[type=password] {
+    margin-left: auto;
+    margin-right: auto;
+    width: 170px;
+    padding: 5px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
 }
 
 table {
