@@ -1,4 +1,8 @@
-header {
+.yatzy-main {
+    float: left;
+    margin-left: 50px;
+}
+.logo-container {
     display: block;
     margin-left: auto;
     margin-right: auto;
