@@ -99,3 +99,12 @@ li a:hover {
 .loginalignment {
     text-align: right;
 }
+.calculate {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align:bottom;
+}
+#button-btn {
+    font-size:15px;
+    padding: 10px 30px;
+}
