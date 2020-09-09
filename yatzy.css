@@ -13,16 +13,14 @@
 .login-container {
     margin-left: auto;
     margin-right: auto;
-    padding: 16px;
+    padding-block-end: 10px;
 }
 
-input.login[type=text],
-input.login[type=password] {
-    margin-left: auto;
-    margin-right: auto;
-    width: 170px;
-    padding: 5px 10px;
-    margin: 8px 0;
+input#uname[type=text],
+input#psw[type=password] {
+    width: 90%;
+    padding: 10px 0px;
+    margin: 12px 0;
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
@@ -90,4 +88,13 @@ li a:hover {
 }
 .loginalignment {
     text-align: right;
+}
+.calculate {
+    margin-top: 10px;
+    display: inline-block;
+    vertical-align:bottom;
+}
+#button-btn {
+    font-size:15px;
+    padding: 10px 30px;
 }

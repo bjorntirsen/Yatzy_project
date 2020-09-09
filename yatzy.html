@@ -15,17 +15,19 @@
             <img src="yatzy_html5logo.png" alt="yatzy logo">
         </div>
 
-        <div class="login-container">
-            <label for="uname"><b>Username</b></label>
-            <input class="login" type="text" placeholder="Enter Username" name="uname" required>
-
-            <label for="psw"><b>Password</b></label>
-            <input class="login" type="password" placeholder="Enter Password" name="psw" required>
-
-            <button type="submit">Login</button>
-        </div>
-
         <form action="">
+
+
+            <div class="login-container">
+                <label for="uname"><b>Username</b></label>
+                <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw"><b>Password</b></label>
+                <input id="psw" type="password" placeholder="Enter Password" name="psw" required><br>
+
+                <button type="submit">Login</button>
+            </div>
+
             <table border="1">
                 <tbody>
                     <tr class="highlight">
@@ -164,21 +166,27 @@
                 </tbody>
             </table>
         </form>
-    </section>
-    <section class="chat-window">
-        <div class="text-feed">
-            <p>
-                Player1: Bla bla bla
-            </p>
-            <p>
-                Player2: Bra? Blabla!
-            </p>
-        </div>
-        <form class="input" action="">
-            <p><input type="text" placeholder="Type your message here"></p>
-            <button class="send-button">Send</button>
-        </form>
-    </section>
+
+        <section class="calculate">
+            <form action="">
+                <button id="button-btn" type="submit">beräkna</button>
+            </form>
+        </section>
+
+        <section class="chat-window">
+            <div class="text-feed">
+                <p>
+                    Player1: Bla bla bla
+                </p>
+                <p>
+                    Player2: Bra? Blabla!
+                </p>
+            </div>
+            <form class="input" action="">
+                <p><input type="text" placeholder="Type your message here"></p>
+                <button class="send-button">Send</button>
+            </form>
+        </section>
 </body>
 
 </html>
