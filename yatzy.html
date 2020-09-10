@@ -149,7 +149,7 @@
                         <td><input id="player3total" type="number" min=0 max=374></td>
                         <td><input id="player4total" type="number" min=0 max=374></td>
                     </tr>
-                    <tr >
+                    <tr>
                         <td>Beräkna/Calculate</td>
                         <td><button id="calc-btn1" type="button">Beräkna</button></td>
                         <td><button id="calc-btn2" type="button">Beräkna</button></td>
@@ -161,34 +161,57 @@
         </div>
     </section>
 
-    <section class="login-box">
-            <div class="login-container">
-                <label for="uname"><b>Username</b></label>
-                <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
+    <aside>
+        <table class="dice-chkbx-tb">
+            <tbody>
+                <tr class="tr-img-size">
+                    <td class="td-img-size"><img src="images/dice-1.PNG" alt="Dice1" width="50px"></td>
+                    <td class="td-img-size"><img src="images/dice-2.PNG" alt="Dice1" width="50px"></td>
+                    <td class="td-img-size"><img src="images/dice-3.PNG" alt="Dice1" width="50px"></td>
+                    <td class="td-img-size"><img src="images/dice-4.PNG" alt="Dice1" width="50px"></td>
+                    <td class="td-img-size"><img src="images/dice-5.PNG" alt="Dice1" width="50px"></td>
+                </tr>
 
-                <label for="psw"><b>Password</b></label>
-                <input id="psw" type="password" placeholder="Enter Password" name="psw" required><br>
+                <tr class="img-dice-chk-box">
+                    <td><input class="img-dice-chk-box" type="checkbox"></td>
+                    <td><input class="img-dice-chk-box" type="checkbox"></td>
+                    <td><input class="img-dice-chk-box" type="checkbox"></td>
+                    <td><input class="img-dice-chk-box" type="checkbox"></td>
+                    <td><input class="img-dice-chk-box" type="checkbox"></td>
+                </tr>
+        </table>
 
-                <button type="submit">Login</button>
-            </div>
+    </aside>
+
+
+    <section class="login-box ">
+        <div class="login-container ">
+            <label for="uname "><b>Username</b></label>
+            <input id="uname " type="text " placeholder="Enter Username " name="uname " required>
+
+            <label for="psw "><b>Password</b></label>
+            <input id="psw " type="password " placeholder="Enter Password " name="psw " required><br>
+
+            <button type="submit ">Login</button>
+        </div>
     </section>
 
-    <section class="chat-window">
-            <div class="text-feed">
-                <p>
-                    Player1: Bla bla bla
-                </p>
-                <p>
-                    Player2: Bra? Blabla!
-                </p>
-            </div>
-            <form class="input" action="">
-                <p><input type="text" placeholder="Type your message here"></p>
-                <button class="send-button">Send</button>
-            </form>
+    <section class="chat-window ">
+        <div class="text-feed ">
+            <p>
+                Player1: Bla bla bla
+            </p>
+            <p>
+                Player2: Bra? Blabla!
+            </p>
+        </div>
+        <form class="input " action=" ">
+            <p><input type="text " placeholder="Type your message here "></p>
+            <button class="send-button ">Send</button>
+        </form>
     </section>
-    
-    <script src="js/yatzy.js"></script>
+
+    <script src="js/yatzy.js "></script>
 </body>
 
 </html>
