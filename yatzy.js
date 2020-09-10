@@ -1,19 +1,21 @@
-Document.addEventListener ("DOMContentLoaded", function(event) {
+document.addEventListener ("DOMContentLoaded", function(event) {
     let btnCalc = document.getElementById("calc-btn");
-    let sumField =document.getElementById("player1sum");
+    let sumField = document.getElementById("player1sum");
     let bonusField = document.getElementById("player1bonus");
     
-    let player1one = document.getElementById("player1ones").value;
-    let player1two = document.getElementById("player1twos").value;
-    let player1three = document.getElementById("player1threes").value;
-    let player1four = document.getElementById("player1fours").value; 
-    let player1five = document.getElementById("player1fives").value;
-    let player1six = document.getElementById("player1sixes").value;
+    let player1one = document.getElementById("player1ones");
+    let player1two = document.getElementById("player1twos");
+    let player1three = document.getElementById("player1threes");
+    let player1four = document.getElementById("player1fours"); 
+    let player1five = document.getElementById("player1fives");
+    let player1six = document.getElementById("player1sixes");
     
-    /*let player1sum = player1one + player1two + player1three + player1four + player1five + player1six;
-    
-    let player1bonus;
-    let total;*/
+    /*Vi får senare redigera denna kod för att möjliggöra funktionalietet för 
+    flera spelare: dvs. ändra sumField till p1sumField och bonusField till 
+    p1bonusField etc.
+    Kanske även ändra player1one till p1onesField etc. för att få mer enhetlig
+     benämning på variablerna.
+    */
 
     btnCalc.addEventListener("click", function(event) {
         let sum = 0;
