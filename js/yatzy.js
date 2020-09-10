@@ -66,7 +66,7 @@ document.addEventListener ("DOMContentLoaded", function(event) {
         if (p1dices.includes(2&&3)) {
             fullHouse = 28;
         }              
-        p1sixesField.innerHTML = fullHouse;
+        p1fhField.innerHTML = fullHouse;
 
         /*Här är Mickes kod:
         function countDice(dice) {
