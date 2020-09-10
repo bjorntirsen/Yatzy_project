@@ -5,30 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="yatzy.css">
+    <link rel="stylesheet" href="styles/yatzy.css">
 </head>
 
 <body>
     <section class="yatzy-main">
-
         <div class="logo-container">
-            <img src="yatzy_html5logo.png" alt="yatzy logo">
+            <img src="images/yatzy_html5logo.png" alt="yatzy logo">
         </div>
-
-        <form action="">
-
-
-            <div class="login-container">
-                <label for="uname"><b>Username</b></label>
-                <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input id="psw" type="password" placeholder="Enter Password" name="psw" required><br>
-
-                <button type="submit">Login</button>
-            </div>
-
-            <table border="1">
+        <div>
+            <table border=1 class="yatzy-table">
                 <tbody>
                     <tr class="highlight">
                         <td>Spelare/Player</td>
@@ -163,17 +149,31 @@
                         <td><input id="player3total" type="number" min=0 max=374></td>
                         <td><input id="player4total" type="number" min=0 max=374></td>
                     </tr>
+                    <tr >
+                        <td>Beräkna/Calculate</td>
+                        <td><button id="calc-btn1" type="button">Beräkna</button></td>
+                        <td><button id="calc-btn2" type="button">Beräkna</button></td>
+                        <td><button id="calc-btn3" type="button">Beräkna</button></td>
+                        <td><button id="calc-btn4" type="button">Beräkna</button></td>
+                    </tr>
                 </tbody>
             </table>
-        </form>
+        </div>
+    </section>
 
-        <section class="calculate">
-            <form action="">
-                <button id="calc-btn" type="button">beräkna</button>
-            </form>
-        </section>
+    <section class="login-box">
+            <div class="login-container">
+                <label for="uname"><b>Username</b></label>
+                <input id="uname" type="text" placeholder="Enter Username" name="uname" required>
 
-        <section class="chat-window">
+                <label for="psw"><b>Password</b></label>
+                <input id="psw" type="password" placeholder="Enter Password" name="psw" required><br>
+
+                <button type="submit">Login</button>
+            </div>
+    </section>
+
+    <section class="chat-window">
             <div class="text-feed">
                 <p>
                     Player1: Bla bla bla
@@ -186,9 +186,9 @@
                 <p><input type="text" placeholder="Type your message here"></p>
                 <button class="send-button">Send</button>
             </form>
-        </section>
     </section>
-    <script src="yatzy.js"></script>
+    
+    <script src="js/yatzy.js"></script>
 </body>
 
 </html>

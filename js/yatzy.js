@@ -1,5 +1,5 @@
 document.addEventListener ("DOMContentLoaded", function(event) {
-    let btnCalc = document.getElementById("calc-btn");
+    let btnCalc = document.getElementById("calc-btn1");
     let sumField = document.getElementById("player1sum");
     let bonusField = document.getElementById("player1bonus");
     
@@ -58,7 +58,7 @@ document.addEventListener ("DOMContentLoaded", function(event) {
         sumField.innerHTML = sum;
 
         let bonus = 0;
-        if (sum >= 5) {
+        if (sum >= 63) {
             bonus = 50;
         }
         bonusField.innerHTML = bonus;
