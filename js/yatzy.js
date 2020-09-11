@@ -67,11 +67,7 @@ document.addEventListener ("DOMContentLoaded", function(event) {
             fullHouse = 28;
         }              
         p1fhField.innerHTML = fullHouse;
-        /*Här börjar B och S med koden för tärningarna*/
-        document.getElementById("rollButton").
-        addEventListener("click", function(e) {
-            
-        }
+        
 
         /*Här är Mickes kod:
         function countDice(dice) {
@@ -95,4 +91,20 @@ document.addEventListener ("DOMContentLoaded", function(event) {
 
         countDice([3, 4, 5, 5, 6]);*/
     });
+    /*Här börjar B och S med koden för tärningarna*/
+        /* En funktion som slumpar fram ett tal mellan 1-6 */
+    function randOneSix() {
+        return Math.floor(Math.random() * 6)+1;
+    }
+    document.getElementById("rollButton").
+    addEventListener("click", function(e) {
+        let tmp = 0;
+        for (let i=1;i <=5;i++) {
+            console.log("hello"+i);
+            tmp = randOneSix();
+            console.log(tmp);
+            document.getElementById("dice"+i).src = "images/"+tmp+".png";
+            /* document.getElementById("myImg").src = "hackanm.gif"; */
+        }
+    })
 });
