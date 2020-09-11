@@ -67,6 +67,11 @@ document.addEventListener ("DOMContentLoaded", function(event) {
             fullHouse = 28;
         }              
         p1fhField.innerHTML = fullHouse;
+        /*Här börjar B och S med koden för tärningarna*/
+        document.getElementById("rollButton").
+        addEventListener("click", function(e) {
+            
+        }
 
         /*Här är Mickes kod:
         function countDice(dice) {
