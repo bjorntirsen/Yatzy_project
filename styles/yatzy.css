@@ -40,7 +40,7 @@ table {
 
 td {
     min-width: 80px;
-	border: 1px solid black;
+    border: 1px solid black;
 }
 
 td:nth-child(even) {
@@ -119,8 +119,7 @@ aside {
     background-color: #fff;
 }
 
-.tr-img-size,
-.td-img-size {
+.img-size {
     margin-left: auto;
     margin-right: auto;
     justify-content: center;
