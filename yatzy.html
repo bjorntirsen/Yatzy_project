@@ -149,13 +149,13 @@
                         <td><input id="player3total" type="number" min=0 max=374></td>
                         <td><input id="player4total" type="number" min=0 max=374></td>
                     </tr>
-                    <tr>
+                    <!--  <tr>
                         <td>Beräkna/Calculate</td>
                         <td><button id="calc-btn1" type="button">Beräkna</button></td>
                         <td><button id="calc-btn2" type="button">Beräkna</button></td>
                         <td><button id="calc-btn3" type="button">Beräkna</button></td>
                         <td><button id="calc-btn4" type="button">Beräkna</button></td>
-                    </tr>
+                    </tr>-->
                 </tbody>
             </table>
         </div>
@@ -184,22 +184,25 @@
 
     <aside id="Dice-section">
         <div>
-            <div class="img-size"><img id="dice1" src="images/1.PNG" alt="Dice1"></div>
-            <div class="img-size"><img id="dice2" src="images/1.PNG" alt="Dice2"></div>
-            <div class="img-size"><img id="dice3" src="images/1.PNG" alt="Dice3"></div>
-            <div class="img-size"><img id="dice4" src="images/1.PNG" alt="Dice4"></div>
-            <div class="img-size"><img id="dice5" src="images/1.PNG" alt="Dice5"></div>
+            <div>
+                <div class="img-size"><img id="dice1" src="images/1.PNG" alt="Dice1"></div>
+                <div class="img-size"><img id="dice2" src="images/1.PNG" alt="Dice2"></div>
+                <div class="img-size"><img id="dice3" src="images/1.PNG" alt="Dice3"></div>
+                <div class="img-size"><img id="dice4" src="images/1.PNG" alt="Dice4"></div>
+                <div class="img-size"><img id="dice5" src="images/1.PNG" alt="Dice5"></div>
+            </div>
+
+            <div class="img-dice-chk-box">
+                <div><input class="img-dice-chk-box" type="checkbox"></div>
+                <div><input class="img-dice-chk-box" type="checkbox"></div>
+                <div><input class="img-dice-chk-box" type="checkbox"></div>
+                <div><input class="img-dice-chk-box" type="checkbox"></div>
+                <div><input class="img-dice-chk-box" type="checkbox"></div>
+            </div>
         </div>
 
-        <div class="img-dice-chk-box">
-            <div><input class="img-dice-chk-box" type="checkbox"></div>
-            <div><input class="img-dice-chk-box" type="checkbox"></div>
-            <div><input class="img-dice-chk-box" type="checkbox"></div>
-            <div><input class="img-dice-chk-box" type="checkbox"></div>
-            <div><input class="img-dice-chk-box" type="checkbox"></div>
-        </div>
         <div id="diceRollsLeft">
-            Antal kast kvar: 
+            Antal kast kvar:
         </div>
         <div id="rollButtonSection">
             <button id="rollButton">Slå tärningar</button>
