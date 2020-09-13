@@ -11,6 +11,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let p1foursField = document.getElementById("player1fours");
     let p1fivesField = document.getElementById("player1fives");
     let p1sixesField = document.getElementById("player1sixes");
+
+    let throwsField = document.getElementById("throwsLeft")
     /*Nedan kommer funktionalitet för att räkna ut summa och bonus*/
     /*btnCalc.addEventListener("click", function(event) {
         //Först skapar vi en array som innehåller spelarens alla tärningsslag
@@ -105,15 +107,25 @@ document.addEventListener("DOMContentLoaded", function(event) {
     function randOneSix() {
         return Math.floor(Math.random() * 6) + 1;
     }
+
+    let throws = 3;// antal kast från början
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
-        let tmp = 0;
+        let tmp = 0;      
         for (let i = 1; i <= 5; i++) {
-            console.log("hello" + i);
+            //console.log("hello" + i);
             tmp = randOneSix();
-            console.log(tmp);
+            //console.log(tmp);
             document.getElementById("dice" + i).src = "images/" + tmp + ".png";
             /* document.getElementById("myImg").src = "hackanm.gif"; */
         }
-    })
+        throws--;//antal kast minskas efter varje kast 
+        throwsField.innerHTML = throws;
+        //console.log("Kvar: "+throws); 
+
+        if(throws == 0){//checkar ifall inga kast kvar
+            //console.log("slut");
+            document.getElementById("rollButton").disabled = true;// inaktivera knappen 
+        }
+    })   
 });
