@@ -161,52 +161,40 @@
         </div>
     </section>
 
-    <!-- <aside>
-        <table class="dice-chkbx-tb">
-            <tbody>
-                <tr class="tr-img-size">
-                    <td class="td-img-size"><img src="images/dice-1.PNG" alt="Dice1" width="50px"></td>
-                    <td class="td-img-size"><img src="images/dice-2.PNG" alt="Dice1" width="50px"></td>
-                    <td class="td-img-size"><img src="images/dice-3.PNG" alt="Dice1" width="50px"></td>
-                    <td class="td-img-size"><img src="images/dice-4.PNG" alt="Dice1" width="50px"></td>
-                    <td class="td-img-size"><img src="images/dice-5.PNG" alt="Dice1" width="50px"></td>
-                </tr>
-
-                <tr class="img-dice-chk-box">
-                    <td><input class="img-dice-chk-box" type="checkbox"></td>
-                    <td><input class="img-dice-chk-box" type="checkbox"></td>
-                    <td><input class="img-dice-chk-box" type="checkbox"></td>
-                    <td><input class="img-dice-chk-box" type="checkbox"></td>
-                    <td><input class="img-dice-chk-box" type="checkbox"></td>
-                </tr>
-        </table>
-    </aside> -->
-
-    <aside id="Dice-section">
-        <div>
-            <div>
-                <div class="img-size"><img id="dice1" src="images/1.PNG" alt="Dice1"></div>
-                <div class="img-size"><img id="dice2" src="images/1.PNG" alt="Dice2"></div>
-                <div class="img-size"><img id="dice3" src="images/1.PNG" alt="Dice3"></div>
-                <div class="img-size"><img id="dice4" src="images/1.PNG" alt="Dice4"></div>
-                <div class="img-size"><img id="dice5" src="images/1.PNG" alt="Dice5"></div>
+    <aside id="dice-section">
+        <div id="dice-box">
+            <div class="dice-container">
+                <img id="dice1" src="images/1.PNG" alt="Dice1">
+                <input type="checkbox" class="checkbox" id="check1">
             </div>
-
-            <div class="img-dice-chk-box">
-                <div><input class="img-dice-chk-box" type="checkbox"></div>
-                <div><input class="img-dice-chk-box" type="checkbox"></div>
-                <div><input class="img-dice-chk-box" type="checkbox"></div>
-                <div><input class="img-dice-chk-box" type="checkbox"></div>
-                <div><input class="img-dice-chk-box" type="checkbox"></div>
+            <div class="dice-container">
+                <img id="dice2" src="images/1.PNG" alt="Dice2">
+                <input type="checkbox" class="checkbox" id="check2">
+            </div>
+            <div class="dice-container">
+                <img id="dice3" src="images/1.PNG" alt="Dice3">
+                <input type="checkbox" class="checkbox" id="check3">
+            </div>
+            <div class="dice-container">
+                <img id="dice4" src="images/1.PNG" alt="Dice4">
+                <input type="checkbox" class="checkbox" id="check4">
+            </div>
+            <div class="dice-container">
+                <img id="dice5" src="images/1.PNG" alt="Dice5">
+                <input type="checkbox" class="checkbox" id="check4">
             </div>
         </div>
-
-        <div id="diceRollsLeft">
-            Antal kast kvar:
-        </div>
-        <div id="rollButtonSection">
-            <button id="rollButton">Slå tärningar</button>
-        </div>
+        <div id="under-dice-box">
+            <div id="diceRollsLeft">
+                Antal kast kvar:
+            </div>
+            <span id="explaination">
+                Kryssa för tärnignarna du vill behålla.
+            </span>
+            <div id="rollButtonSection">
+                <button id="rollButton">Slå tärningar</button>
+            </div>
+        </div>        
     </aside>
 
     <!-- <section class="login-box ">
