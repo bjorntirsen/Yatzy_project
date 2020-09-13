@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
 
         let fullHouse = 0;
-        if (p1dices.includes(2 && 3)) {
+        if (p1dices.includes(2) && p1dices.includes(3)) {
             fullHouse = 28;
         }
         p1fhField.innerHTML = fullHouse;
