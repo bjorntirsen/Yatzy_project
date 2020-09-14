@@ -1,9 +1,14 @@
 document.addEventListener("DOMContentLoaded", function(event) {
     /*Skapar varabler från olika element i DOM:en*/
+    //Variabler för spelare 1, summa:bonus:FH.
     let btnCalc = document.getElementById("calc-btn1");
     let sumField = document.getElementById("player1sum");
     let bonusField = document.getElementById("player1bonus");
     let p1fhField = document.getElementById("player1fh");
+    //Variabler för spelare 2, summa:bonus:FH.
+    let sumField2 = document.getElementById("player2sum");
+    let bonusField2 = document.getElementById("player2bonus");
+    let p2fhField = document.getElementById("player2fh");
     /*Variabler från spelare etts fält*/
     let p1onesField = document.getElementById("player1ones");
     let p1twoesField = document.getElementById("player1twos");
@@ -11,6 +16,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let p1foursField = document.getElementById("player1fours");
     let p1fivesField = document.getElementById("player1fives");
     let p1sixesField = document.getElementById("player1sixes");
+    //Variabler från spelare tvås fält
+    let p2onesField = document.getElementById("player2ones");
+    let p2twoesField = document.getElementById("player2twos");
+    let p2threesField = document.getElementById("player2threes");
+    let p2foursField = document.getElementById("player2fours");
+    let p2fivesField = document.getElementById("player2fives");
+    let p2sixesField = document.getElementById("player2sixes");
 
     let throwsField = document.getElementById("throwsLeft")
     /*Nedan kommer funktionalitet för att räkna ut summa och bonus*/
@@ -78,7 +90,66 @@ document.addEventListener("DOMContentLoaded", function(event) {
             fullHouse = 28;
         }
         p1fhField.innerHTML = fullHouse;
+    });
 
+        //Här börjar D föra in koden för automatisk beräkning av spelare 2
+        window.addEventListener("change", function(event) {
+            let p2dices = [];
+            let sum = 0;
+            let tmp = 0;
+    
+    
+            /*Kopia av array från spelare 1 för att få ut värden till spelare 2*/
+            tmp = p2onesField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[1] = Number(p2onesField.value);
+            }
+            tmp = p2twoesField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[2] = Number(p2twoesField.value) / 2;
+            }
+            tmp = p2threesField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[3] = Number(p2threesField.value) / 3;
+            }
+            tmp = p2foursField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[4] = Number(p2foursField.value) / 3;
+            }
+            tmp = p2fivesField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[5] = Number(p2fivesField.value) / 3;
+            }
+            tmp = p2sixesField.value;
+            if (typeof(Number(tmp)) === "number") {
+                sum += Number(tmp);
+                p2dices[6] = Number(p2sixesField.value) / 3;
+            }
+            /*här skriver vi ut arrayen i consolen för att testa att den fungerar*/
+            console.log(p2dices);
+            /*Arrayen är alltså skapad och kan användas för att kolla om vi fått
+            kåk, triss etc*/
+            /*Nedan skriver ut summan till sidan för spelare 2*/
+            sumField2.innerHTML = sum;
+            /*Räknar ut och skriver ut ev. bonus till sidan för spelare 2*/
+            let bonus = 0;
+            if (sum >= 63) {
+                bonus = 50;
+            }
+            bonusField2.innerHTML = bonus;
+            /*Räknar ut och skriver ut ev. kåk till sidan för spelare 2*/
+    
+    
+            let fullHouse = 0;
+            if (p2dices.includes(2) && p2dices.includes(3)) {
+                fullHouse = 28;
+            }
+            p2fhField.innerHTML = fullHouse;
 
         /*Här är Mickes kod:
         function countDice(dice) {
