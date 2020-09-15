@@ -1,179 +1,49 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    /*Skapar varabler från olika element i DOM:en*/
-    //Variabler för spelare 1, summa:bonus:FH.
-    let btnCalc = document.getElementById("calc-btn1");
-    let sumField = document.getElementById("player1sum");
-    let bonusField = document.getElementById("player1bonus");
-    let p1fhField = document.getElementById("player1fh");
-    //Variabler för spelare 2, summa:bonus:FH.
-    let sumField2 = document.getElementById("player2sum");
-    let bonusField2 = document.getElementById("player2bonus");
-    let p2fhField = document.getElementById("player2fh");
-    /*Variabler från spelare etts fält*/
-    let p1onesField = document.getElementById("player1ones");
-    let p1twoesField = document.getElementById("player1twos");
-    let p1threesField = document.getElementById("player1threes");
-    let p1foursField = document.getElementById("player1fours");
-    let p1fivesField = document.getElementById("player1fives");
-    let p1sixesField = document.getElementById("player1sixes");
-    //Variabler från spelare tvås fält
-    let p2onesField = document.getElementById("player2ones");
-    let p2twoesField = document.getElementById("player2twos");
-    let p2threesField = document.getElementById("player2threes");
-    let p2foursField = document.getElementById("player2fours");
-    let p2fivesField = document.getElementById("player2fives");
-    let p2sixesField = document.getElementById("player2sixes");
-
-    let throwsField = document.getElementById("throwsLeft")
-    /*Nedan kommer funktionalitet för att räkna ut summa och bonus*/
-    /*btnCalc.addEventListener("click", function(event) {
-        //Först skapar vi en array som innehåller spelarens alla tärningsslag
-        let p1dices = [];
-        //Tillfällig variabel och variabel för summa
-        let sum = 0;
-        let tmp = 0;*/
-
-    window.addEventListener("change", function(event) {
-        let p1dices = [];
-        let sum = 0;
-        let tmp = 0;
-
-
-        /*Jag har byggt in skapandet av vår array med nummer-kontrollen nedan*/
-        tmp = p1onesField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[1] = Number(p1onesField.value);
-        }
-        tmp = p1twoesField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[2] = Number(p1twoesField.value) / 2;
-        }
-        tmp = p1threesField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[3] = Number(p1threesField.value) / 3;
-        }
-        tmp = p1foursField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[4] = Number(p1foursField.value) / 3;
-        }
-        tmp = p1fivesField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[5] = Number(p1fivesField.value) / 3;
-        }
+    /*  Gammal kod att använda för att göra ny här nedan
         tmp = p1sixesField.value;
         if (typeof(Number(tmp)) === "number") {
             sum += Number(tmp);
             p1dices[6] = Number(p1sixesField.value) / 3;
-        }
+        } */
         /*här skriver vi ut arrayen i consolen för att testa att den fungerar*/
+    let throwsField = document.getElementById("throwsLeft")
+    window.addEventListener("change", function(event) {
+        let p1dices = [];
+        let sum = 0;
+        let active_players = 1;
+        //Räkna ut summa från p1 fälten
+        let arr1 = document.getElementsByClassName('p1');
+        console.log("arr1: "+arr1);
+        let arr2 = Array.from(arr1);
+        console.log("arr2: "+arr2);
+        let arr3 = arr2.map((element, index, array) => 
+        { return parseInt(element.value) || 0});
+        console.log("arr3: "+arr3);
+        
+        let arrsum = arr3.reduce((a, b) => {
+            return a+b;
+        },0);
+        console.log("Summan (arrsum) blir: "+arrsum);
+        
         console.log(p1dices);
-        /*Arrayen är alltså skapad och kan användas för att kolla om vi fått
-        kåk, triss etc*/
-        /*Nedan skriver ut summan till sidan*/
-        sumField.innerHTML = sum;
-        /*Räknar ut och skriver ut ev. bonus till sidan*/
+        //Returnerar bonus = true om man har kåk i fälten 1-6
+        //Detta är inte så användbart för tillfället men kanske
+        //längre fram
         let bonus = 0;
         if (sum >= 63) {
             bonus = 50;
         }
-        bonusField.innerHTML = bonus;
-        /*Räknar ut och skriver ut ev. kåk till sidan*/
-
-
-        let fullHouse = 0;
+        document.getElementById("player1bonus").innerHTML = bonus;
+        //Returnerar fullHouse = true om man har kåk i fälten 1-6
+        //Detta är inte så användbart för tillfället men kanske
+        //längre fram
+        let fullHouse = false;
         if (p1dices.includes(2) && p1dices.includes(3)) {
             fullHouse = 28;
         }
-        p1fhField.innerHTML = fullHouse;
-    });
-
-        //Här börjar D föra in koden för automatisk beräkning av spelare 2
-        window.addEventListener("change", function(event) {
-            let p2dices = [];
-            let sum = 0;
-            let tmp = 0;
-    
-    
-            /*Kopia av array från spelare 1 för att få ut värden till spelare 2*/
-            tmp = p2onesField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[1] = Number(p2onesField.value);
-            }
-            tmp = p2twoesField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[2] = Number(p2twoesField.value) / 2;
-            }
-            tmp = p2threesField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[3] = Number(p2threesField.value) / 3;
-            }
-            tmp = p2foursField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[4] = Number(p2foursField.value) / 3;
-            }
-            tmp = p2fivesField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[5] = Number(p2fivesField.value) / 3;
-            }
-            tmp = p2sixesField.value;
-            if (typeof(Number(tmp)) === "number") {
-                sum += Number(tmp);
-                p2dices[6] = Number(p2sixesField.value) / 3;
-            }
-            /*här skriver vi ut arrayen i consolen för att testa att den fungerar*/
-            console.log(p2dices);
-            /*Arrayen är alltså skapad och kan användas för att kolla om vi fått
-            kåk, triss etc*/
-            /*Nedan skriver ut summan till sidan för spelare 2*/
-            sumField2.innerHTML = sum;
-            /*Räknar ut och skriver ut ev. bonus till sidan för spelare 2*/
-            let bonus = 0;
-            if (sum >= 63) {
-                bonus = 50;
-            }
-            bonusField2.innerHTML = bonus;
-            /*Räknar ut och skriver ut ev. kåk till sidan för spelare 2*/
-    
-    
-            let fullHouse = 0;
-            if (p2dices.includes(2) && p2dices.includes(3)) {
-                fullHouse = 28;
-            }
-            p2fhField.innerHTML = fullHouse;
-
-        /*Här är Mickes kod:
-        function countDice(dice) {
-        let values = [];
-    
-        for (let i = 0; i <= 6; i++) {
-            values[i] = 0;
-        }
-        // [0, 0, 0, 0, 0, 0, 0]
-        // [0, 0, 0, 1, 0, 0, 0]
-        // [0, 0, 0, 1, 1, 0, 0]
-        // [0, 0, 0, 1, 1, 1, 0]
-        // [0, 0, 0, 1, 1, 2, 0]
-        // [0, 0, 0, 1, 1, 2, 1]
-        for (let current_dice of dice) {
-                values[current_dice]++;
-        }
-        
-        console.log(values);
-        }
-
-        countDice([3, 4, 5, 5, 6]);*/
-    });
-    /*Här börjar B och S med koden för tärningarna*/
+        fullHouse = true;
+    });  
+    //Tärningarna:
     /* En funktion som slumpar fram ett tal mellan 1-6 */
     function randOneSix() {
         return Math.floor(Math.random() * 6) + 1;
@@ -182,21 +52,28 @@ document.addEventListener("DOMContentLoaded", function(event) {
     let throws = 3;// antal kast från början
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
-        let tmp = 0;      
-        for (let i = 1; i <= 5; i++) {
-            //console.log("hello" + i);
+
+        //Skapar en array med checkboxarna
+        let check_arr = Array.from(document.getElementsByClassName('checkbox'));
+        console.log("check_arr: "+check_arr);
+        //Skapar en array med de ocheckade boxarnas index
+        unchecked_arr = check_arr.filter(box => box.checked == false);
+        let unchecked_arr2 = unchecked_arr.map(a => a.value);
+        console.log("unchecked_arr value: "+unchecked_arr2);
+                
+        //funktion för ikryssade rutor   
+        for (let i = 0; i <= unchecked_arr2.length-1; i++) {
+            let tmp = 0;
             tmp = randOneSix();
-            //console.log(tmp);
-            document.getElementById("dice" + i).src = "images/" + tmp + ".png";
-            /* document.getElementById("myImg").src = "hackanm.gif"; */
+            document.getElementById("dice" + unchecked_arr2[i]).src =
+             "images/" + tmp + ".png";
         }
         throws--;//antal kast minskas efter varje kast 
         throwsField.innerHTML = throws;
-        //console.log("Kvar: "+throws); 
 
         if(throws == 0){//checkar ifall inga kast kvar
-            //console.log("slut");
-            document.getElementById("rollButton").disabled = true;// inaktivera knappen 
+            //Nedan inaktiverar knappen när kast är slut
+            document.getElementById("rollButton").disabled = true; 
         }
     })   
 });
