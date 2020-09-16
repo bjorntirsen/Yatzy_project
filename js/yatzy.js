@@ -1,58 +1,60 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-    /*  Gammal kod att använda för att göra ny här nedan
-        tmp = p1sixesField.value;
-        if (typeof(Number(tmp)) === "number") {
-            sum += Number(tmp);
-            p1dices[6] = Number(p1sixesField.value) / 3;
-        } */
-        /*här skriver vi ut arrayen i consolen för att testa att den fungerar*/
-    let throwsField = document.getElementById("throwsLeft")
     window.addEventListener("change", function(event) {
-        /* let p1dices = []; */
-        let active_players = 1;
-        //Räkna ut summa från p1 fälten
+        //Kod för att räkna ut summa från p1 fälten
+        //denna kan förenklas senare
         let arr1 = document.getElementsByClassName('p1');
         let arr2 = Array.from(arr1);
         let arr3 = arr2.map((element, index, array) => 
         { return parseInt(element.value) || 0});
-        let arrsum = arr3.reduce((a, b) => {
-            return a+b;
-        },0);
-        document.getElementById("p1sum").innerHTML = arrsum;
-        //Returnerar bonus
-        let bonus = 0;
-        if (arrsum >= 63) {
-            bonus = 50;
+        
+        //Början på en funktion för att ta en array som med fem tal
+        //och returnera sant om talen innehåller kåk.
+        //Just nu tar den istället en array med sju tal där tal
+        //index 1-6 är hur många av varje tärning som finns i "p1"
+        //fälten.
+        /* let p1dices = [0,0,0,0,0,0,0];
+        let i = 1;
+        for (let value of arr3) {
+            if (value >= 1) p1dices[i] = (value)/(i);
+            i++;
         }
-        document.getElementById("player1bonus").innerHTML = bonus;
-        //Returnerar fullHouse = true om man har kåk i fälten 1-6
-        //Detta är inte så användbart för tillfället men kanske
-        //längre fram
         let fullHouse = false;
         if (p1dices.includes(2) && p1dices.includes(3)) {
             fullHouse = 28;
         }
-        fullHouse = true;
-    });  
+        fullHouse = true; */
+
+        //Kod för att skriva ut summan av "p1" fälten
+        let arrsum = arr3.reduce((a, b) => {
+            return a+b;
+        },0);
+        document.getElementById("p1sum").innerHTML = arrsum;
+        
+        //Kod för att skriva ut 50 bonus poäng om summan av 
+        //"p1" fälten är 63 eller mer
+        let bonus = 0;
+        if (arrsum >= 63) bonus = 50;        
+        document.getElementById("player1bonus").innerHTML = bonus;        
+    });
+
     //Tärningarna:
     /* En funktion som slumpar fram ett tal mellan 1-6 */
     function randOneSix() {
         return Math.floor(Math.random() * 6) + 1;
     }
-
-    let throws = 3;// antal kast från början
+    //Antal kast funktion
+    let throwsField = document.getElementById("throwsLeft")
+    let throws = 3;
+    //Tärnings slag funktion
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
-
         //Skapar en array med checkboxarna
         let check_arr = Array.from(document.getElementsByClassName('checkbox'));
-        console.log("check_arr: "+check_arr);
         //Skapar en array med de ocheckade boxarnas index
         unchecked_arr = check_arr.filter(box => box.checked == false);
-        let unchecked_arr2 = unchecked_arr.map(a => a.value);
-        console.log("unchecked_arr value: "+unchecked_arr2);
-                
-        //funktion för ikryssade rutor   
+        let unchecked_arr2 = unchecked_arr.map(a => a.value);                     
+        //funktion för ikryssade rutor
+        //Kanske skulle kunna göra en "for let of" loop här under istället 
         for (let i = 0; i <= unchecked_arr2.length-1; i++) {
             let tmp = 0;
             tmp = randOneSix();
