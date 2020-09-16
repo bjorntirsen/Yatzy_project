@@ -8,29 +8,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
         /*här skriver vi ut arrayen i consolen för att testa att den fungerar*/
     let throwsField = document.getElementById("throwsLeft")
     window.addEventListener("change", function(event) {
-        let p1dices = [];
-        let sum = 0;
+        /* let p1dices = []; */
         let active_players = 1;
         //Räkna ut summa från p1 fälten
         let arr1 = document.getElementsByClassName('p1');
-        console.log("arr1: "+arr1);
         let arr2 = Array.from(arr1);
-        console.log("arr2: "+arr2);
         let arr3 = arr2.map((element, index, array) => 
         { return parseInt(element.value) || 0});
-        console.log("arr3: "+arr3);
-        
         let arrsum = arr3.reduce((a, b) => {
             return a+b;
         },0);
-        console.log("Summan (arrsum) blir: "+arrsum);
-        
-        console.log(p1dices);
-        //Returnerar bonus = true om man har kåk i fälten 1-6
-        //Detta är inte så användbart för tillfället men kanske
-        //längre fram
+        document.getElementById("p1sum").innerHTML = arrsum;
+        //Returnerar bonus
         let bonus = 0;
-        if (sum >= 63) {
+        if (arrsum >= 63) {
             bonus = 50;
         }
         document.getElementById("player1bonus").innerHTML = bonus;
