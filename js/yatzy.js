@@ -86,5 +86,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //Nedan inaktiverar knappen när kast är slut
             document.getElementById("rollButton").disabled = true; 
         }
+        //Funktion för att gömma checkboxarna innan 1:a slag
+        if(throws<=2) {
+            console.log("test");
+            /* for (let i = 1; i >= 5; i++) {
+                document.getElementById("check"+(i)).style.display = "flex";
+            } */
+            document.getElementById("check1").style.display = "flex";
+            document.getElementById("check2").style.display = "flex";
+            document.getElementById("check3").style.display = "flex";
+            document.getElementById("check4").style.display = "flex";
+            document.getElementById("check5").style.display = "flex";
+            /* let check_style = document.getElementsByClassName("checkbox")
+            for (Each of check_style) this.style.display = "flex"; */
+            document.getElementById("explaination").style.display = "flex";
+        }
     })   
 });
