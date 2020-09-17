@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         /* let p1dices = [0,0,0,0,0,0,0];
         let i = 1;
         for (let value of arr3) {
-            if (value >= 1) p1dices[i] = (value)/(i);
+            if (value >= 1) p1dices[i] = (value)/(i);s
             i++;
         }
         let fullHouse = false;
