@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("dice" + unchecked_arr2[i]).src =
              "images/" + tmp + ".png";
 
-            dice_array[i] = tmp; 
+            dice_array[unchecked_arr2[i]-1] = tmp; 
         }
 
         console.log(dice_array);
