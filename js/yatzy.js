@@ -37,6 +37,17 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("player1bonus").innerHTML = bonus;        
     });
 
+
+    //här börjar vi på tärning arry
+  /*  let da1 = document.getElementsByClassName('dice');
+    let da2 = Array.from(da1);
+    console.log(da2);
+    let da3 = da2.map((element, index, array) => 
+    { return parseInt(element.value) || 0});*/
+
+
+    //har slutar tärning array
+
     //Tärningarna:
     /* En funktion som slumpar fram ett tal mellan 1-6 */
     function randOneSix() {
@@ -45,6 +56,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //Antal kast funktion
     let throwsField = document.getElementById("throwsLeft")
     let throws = 3;
+
+    let dice_array = [0,0,0,0,0];
+    console.log("array innan slag"+dice_array);
     //Tärnings slag funktion
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
@@ -60,7 +74,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
             tmp = randOneSix();
             document.getElementById("dice" + unchecked_arr2[i]).src =
              "images/" + tmp + ".png";
+
+            dice_array[i] = tmp; 
         }
+
+        console.log(dice_array);
         throws--;//antal kast minskas efter varje kast 
         throwsField.innerHTML = throws;
 
