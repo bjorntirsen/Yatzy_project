@@ -81,7 +81,7 @@
                     </tr>
                     <tr>
                         <td>Par/Pair</td>
-                        <td><input id="player1pairs" type="number" min=0 max=12 step=2></td>
+                        <td id="td-p1p"><input id="player1pairs" type="number" min=0 max=12 step=2></td>
                         <td><input id="player2pairs" type="number" min=0 max=12 step=2></td>
                         <td><input id="player3pairs" type="number" min=0 max=12 step=2></td>
                         <td><input id="player4pairs" type="number" min=0 max=12 step=2></td>
@@ -123,10 +123,10 @@
                     </tr>
                     <tr>
                         <td>Kåk/Full house</td>
-                        <td><span id="player1fh"></span></td>
-                        <td><span id="player2fh"></span></td>
-                        <td><input id="player3fh" type="number" min=0 max=28></td>
-                        <td><input id="player4fh" type="number" min=0 max=28></td>
+                        <td id="td-p1fh"><span id="p1fh"></span></td>
+                        <td><span id="p2fh"></span></td>
+                        <td><input id="p3fh" type="number" min=0 max=28></td>
+                        <td><input id="p4fh" type="number" min=0 max=28></td>
                     </tr>
                     <tr>
                         <td>Chans/Chance</td>
@@ -148,7 +148,7 @@
                         <td><input id="player2total" type="number" min=0 max=374></td>
                         <td><input id="player3total" type="number" min=0 max=374></td>
                         <td><input id="player4total" type="number" min=0 max=374></td>
-                    </tr>                    
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -179,7 +179,7 @@
         </div>
         <div id="under-dice-box">
             <div id="diceRollsLeft">
-                Antal kast kvar:  
+                Antal kast kvar:
                 <span id=throwsLeft>3</span>
             </div>
             <span id="explaination">
@@ -188,7 +188,7 @@
             <div id="rollButtonSection">
                 <button id="rollButton">Slå tärningar</button>
             </div>
-        </div>        
+        </div>
     </aside>
 
     <!-- <section class="login-box ">
