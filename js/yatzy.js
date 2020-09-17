@@ -77,8 +77,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
             dice_array[unchecked_arr2[i]-1] = tmp; 
         }
+        //nya arrayen
+        let dice_no = [0,0,0,0,0,0,0];
+        dice_array.forEach((a) => dice_no[a] ++);
+        
+        console.log("dice_array: "+dice_array);
+        console.log("dice_no: "+dice_no);
 
-        console.log(dice_array);
         throws--;//antal kast minskas efter varje kast 
         throwsField.innerHTML = throws;
 
