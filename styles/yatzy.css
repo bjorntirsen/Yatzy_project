@@ -26,6 +26,16 @@ input#psw[type=password] {
     box-sizing: border-box;
 }
 
+
+/*Försökt till att få poäng att synas vid hover over*/
+/*.hoverPoints span {
+    background-color: rgb(147, 80, 235);
+}
+
+.hoverPoints span:hover {
+    color: rgba(104, 68, 11, 0.89);
+}*/
+
 span.psw {
     float: right;
     padding-top: 16px;

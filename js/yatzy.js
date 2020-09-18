@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else {
             document.getElementById("td-p1p").style.backgroundColor = "silver";
         }
+
         //Två par 
         //(först filtrera ur 4or & 2or, sen kolla om summa är 4)
         let dice_no2 = dice_no.filter(numb => (numb === 2) || (numb === 4) == true);
@@ -103,15 +104,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
         dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
         if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
             document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
+            document.getElementById("player1sstraight").value = 15;
         } else {
             document.getElementById("td-p1ls").style.backgroundColor = "silver";
+            document.getElementById("player1sstraight").value = null;
         }  
         
+        //Chans
+        if (throws <= 2) {
+            document.getElementById("td-p1ch").style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("td-p1ch").style.backgroundColor = "silver";
+        } 
+
         //Stor stege
         if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
             document.getElementById("td-p1ss").style.backgroundColor = "lightgreen";
+            document.getElementById("player1lstraight").value = 20;
         } else {
             document.getElementById("td-p1ss").style.backgroundColor = "silver";
+            document.getElementById("player1lstraight").value = null;
         }       
 
         //Kåk
