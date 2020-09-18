@@ -85,6 +85,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else {
             document.getElementById("td-p12p").style.backgroundColor = "silver";
         }
+
         //Tretal
         if (dice_no.includes(3) || dice_no.includes(4) || dice_no.includes(5)) {
             document.getElementById("td-p1t").style.backgroundColor = "lightgreen";
@@ -104,26 +105,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
         if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
             document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
-            document.getElementById("player1sstraight").value = 15;
+            document.getElementById("player1sstraight").innerHTML = "15";
         } else {
             document.getElementById("td-p1ls").style.backgroundColor = "silver";
-            document.getElementById("player1sstraight").value = null;
+            document.getElementById("player1sstraight").innerHTML = null;
         }  
-        
-        //Chans
-        if (throws <= 2) {
-            document.getElementById("td-p1ch").style.backgroundColor = "lightgreen";
-        } else {
-            document.getElementById("td-p1ch").style.backgroundColor = "silver";
-        } 
-
+                
         //Stor stege
         if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
             document.getElementById("td-p1ss").style.backgroundColor = "lightgreen";
-            document.getElementById("player1lstraight").value = 20;
+            document.getElementById("player1lstraight").innerHTML = "20";
         } else {
             document.getElementById("td-p1ss").style.backgroundColor = "silver";
-            document.getElementById("player1lstraight").value = null;
+            document.getElementById("player1lstraight").innerHTML = null;
         }       
 
         //Kåk
@@ -133,11 +127,24 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("td-p1fh").style.backgroundColor = "silver";
         }
 
+        //Chans
+        if (throws <= 2) {
+            document.getElementById("td-p1ch").style.backgroundColor = "lightgreen";
+            let chance_sum = dice_array.reduce((a, b) => a + b, 0);
+            console.log(chance_sum);
+            document.getElementById("player1chance").innerHTML = chance_sum;
+        } else {
+            document.getElementById("td-p1ch").style.backgroundColor = "silver";
+            document.getElementById("player1chance").innerHTML = null;
+        } 
+
         //Yatzy
         if (dice_no.includes(5)) {
             document.getElementById("td-p1y").style.backgroundColor = "lightgreen";
+            document.getElementById("player1yatzy").value = 50;
         } else {
             document.getElementById("td-p1y").style.backgroundColor = "silver";
+            document.getElementById("player1yatzy").value = null;
         }
     })
 });
