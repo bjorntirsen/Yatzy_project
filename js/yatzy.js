@@ -6,10 +6,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let arr1 = document.getElementsByClassName('p1');
         let arr2 = Array.from(arr1);
         let arr3 = arr2.map((element, index, array) => {
-            return parseInt(element.value) || 0 });
+            return parseInt(element.value) || 0
+        });
         //Kod för att skriva ut summan av "p1" fälten
         let arrsum = arr3.reduce((a, b) => {
-            return a + b;}, 0);
+            return a + b;
+        }, 0);
         document.getElementById("p1sum").innerHTML = arrsum;
         //Kod för att skriva ut 50 bonus poäng om summan av 
         //"p1" fälten är 63 eller mer
@@ -20,14 +22,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
     //Tärningarna:
     // En funktion som slumpar fram ett tal mellan 1-6
-    function randOneSix() { return Math.floor(Math.random() * 6) + 1;
+    function randOneSix() {
+        return Math.floor(Math.random() * 6) + 1;
     }
     //Antal kast funktion
     let throwsField = document.getElementById("throwsLeft")
     let throws = 3;
     //Array med värdet på de fem tärningarna
     let dice_array = [0, 0, 0, 0, 0];
-    
+
     //Funktioner som triggas när man trycker på knappen:
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
@@ -87,6 +90,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else {
             document.getElementById("td-p1t").style.backgroundColor = "silver";
         }
+
+        //Fyrtal
+        if (dice_no.includes(4) || dice_no.includes(5)) {
+            document.getElementById("td-p1f").style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("td-p1f").style.backgroundColor = "silver";
+        }
+
+
         //Kåk
         if (dice_no.includes(2) && dice_no.includes(3)) {
             document.getElementById("td-p1fh").style.backgroundColor = "lightgreen";
