@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         dice_array.forEach((a) => dice_no[a]++);
         //Antal kast minskas efter varje kast 
         //throws=2; <- växla till denna för test
-        throws--;
+        throws = 2;
         throwsField.innerHTML = throws;
         //Inaktiverar slag knappen när kast är slut
         if (throws == 0) {
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         } else {
             document.getElementById("td-p12p").style.backgroundColor = "silver";
         }
-        //Treta
+        //Tretal
         if (dice_no.includes(3) || dice_no.includes(4) || dice_no.includes(5)) {
             document.getElementById("td-p1t").style.backgroundColor = "lightgreen";
         } else {
@@ -98,12 +98,34 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("td-p1f").style.backgroundColor = "silver";
         }
 
+        //liten stege
+        let dice_no4 = dice_no.filter(numb => (numb === 1) == true);
+        dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
+        if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
+            document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("td-p1ls").style.backgroundColor = "silver";
+        }  
+        
+        //Stor stege
+        if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
+            document.getElementById("td-p1ss").style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("td-p1ss").style.backgroundColor = "silver";
+        }       
 
         //Kåk
         if (dice_no.includes(2) && dice_no.includes(3)) {
             document.getElementById("td-p1fh").style.backgroundColor = "lightgreen";
         } else {
             document.getElementById("td-p1fh").style.backgroundColor = "silver";
+        }
+
+        //Yatzy
+        if (dice_no.includes(5)) {
+            document.getElementById("td-p1y").style.backgroundColor = "lightgreen";
+        } else {
+            document.getElementById("td-p1y").style.backgroundColor = "silver";
         }
     })
 });
