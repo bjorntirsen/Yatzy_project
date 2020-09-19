@@ -63,30 +63,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let dice_no = [0, 0, 0, 0, 0, 0, 0];
         dice_array.forEach((a) => dice_no[a]++);
         //Antal kast minskas efter varje kast 
-        //throws=2; <- växla till denna för test
-        throws = 2;
+        //throws--; <- växla till denna för verklig funktion
+        throws = 2; //detta är för att testa kod
         throwsField.innerHTML = throws;
         //Inaktiverar slag knappen när kast är slut
         if (throws == 0) {
             document.getElementById("rollButton").disabled = true;
         }
-        //Funktion för att gömma checkboxarna+test innan 1:a slag
+        //Funktion för att gömma checkboxarna+text innan 1:a slag
         if (throws <= 2) {
-
-            //nya koden 
             let cb = document.getElementsByClassName("checkbox");
             for(let cbs of cb) {
                cbs.style.display ="flex";
             }
-
-            /*
-            document.getElementById("check1").style.display = "flex";
-            document.getElementById("check2").style.display = "flex";
-            document.getElementById("check3").style.display = "flex";
-            document.getElementById("check4").style.display = "flex";
-            document.getElementById("check5").style.display = "flex";
-            */
-
             document.getElementById("explaination").style.display = "flex";
         }
         //Funktioner för att highlighta möjliga rutor
@@ -137,8 +126,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 
         //Large straight
         if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
-            document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
-            document.getElementById("player1ls").innerHTML = "20";
+            let td_p1ls = document.getElementById("td-p1ls");
+            td_p1ls.style.backgroundColor = "lightgreen";
+            let player1ls = document.getElementById("player1ls");
+            player1ls.innerHTML = "20";
+            hide (player1ls, td_p1ls);
         } else {
             document.getElementById("td-p1ls").style.backgroundColor = "silver";
             document.getElementById("player1ls").innerHTML = null;
