@@ -1,4 +1,15 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+    //Funktion för att göra text osynlig förutom när musen pekar
+    function hide(target, zone) {
+        target.classList.add("invisible");
+        zone.onmouseover = function(){
+            target.classList.remove("invisible");
+            target.classList.add("visible")
+        };
+        zone.onmouseout = function(){
+            target.classList.remove("visible");
+            target.classList.add("invisible")};
+    }
     //Funktioner som triggas vid ändring i fälten:
     window.addEventListener("change", function(event) {
         //Kod för att räkna ut summa från "p1" fälten
@@ -100,24 +111,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
             document.getElementById("td-p1f").style.backgroundColor = "silver";
         }
 
-        //liten stege
+        //Small straight
         let dice_no4 = dice_no.filter(numb => (numb === 1) == true);
         dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
         if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
-            document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
-            document.getElementById("player1sstraight").innerHTML = "15";
+            let td_p1ss = document.getElementById("td-p1ss");
+            td_p1ss.style.backgroundColor = "lightgreen";
+            let player1ss = document.getElementById("player1ss");
+            player1ss.innerHTML = "15";
+            hide (player1ss, td_p1ss);
         } else {
             document.getElementById("td-p1ls").style.backgroundColor = "silver";
-            document.getElementById("player1sstraight").innerHTML = null;
+            document.getElementById("player1ls").innerHTML = null;
         }  
                 
-        //Stor stege
+        //Large straight
         if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
-            document.getElementById("td-p1ss").style.backgroundColor = "lightgreen";
-            document.getElementById("player1lstraight").innerHTML = "20";
+            document.getElementById("td-p1ls").style.backgroundColor = "lightgreen";
+            document.getElementById("player1ls").innerHTML = "20";
         } else {
-            document.getElementById("td-p1ss").style.backgroundColor = "silver";
-            document.getElementById("player1lstraight").innerHTML = null;
+            document.getElementById("td-p1ls").style.backgroundColor = "silver";
+            document.getElementById("player1ls").innerHTML = null;
         }       
 
         //Kåk
@@ -131,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         if (throws <= 2) {
             document.getElementById("td-p1ch").style.backgroundColor = "lightgreen";
             let chance_sum = dice_array.reduce((a, b) => a + b, 0);
-            console.log(chance_sum);
             document.getElementById("player1chance").innerHTML = chance_sum;
         } else {
             document.getElementById("td-p1ch").style.backgroundColor = "silver";
