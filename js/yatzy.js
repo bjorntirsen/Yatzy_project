@@ -86,36 +86,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             document.getElementById("explaination").style.display = "flex";
         }
+
         //Funktioner för att highlighta möjliga rutor
         //Par
+        let td_p1p = document.getElementById("td-p1p");
         if (dice_no.includes(2) || dice_no.includes(3) || dice_no.includes(4) || dice_no.includes(5)) {
-            document.getElementById("td-p1p").style.backgroundColor = "lightgreen";
+            green(td_p1p);
         } else {
-            document.getElementById("td-p1p").style.backgroundColor = "silver";
+            silver(td_p1p);
         }
 
         //Två par 
         //(först filtrera ur 4or & 2or, sen kolla om summa är 4)
         let dice_no2 = dice_no.filter(numb => (numb === 2) || (numb === 4) == true);
         dice_no3 = dice_no2.reduce((a, b) => a + b, 0);
+        let td_p12p = document.getElementById("td-p12p");
         if (dice_no3 === 4) {
-            document.getElementById("td-p12p").style.backgroundColor = "lightgreen";
+            green(td_p12p);
         } else {
-            document.getElementById("td-p12p").style.backgroundColor = "silver";
+            silver(td_p12p);
         }
 
         //Tretal
+        let td_p1t = document.getElementById("td-p1t");
         if (dice_no.includes(3) || dice_no.includes(4) || dice_no.includes(5)) {
-            document.getElementById("td-p1t").style.backgroundColor = "lightgreen";
+            green(td_p1t);
         } else {
-            document.getElementById("td-p1t").style.backgroundColor = "silver";
+            silver(td_p1t);
         }
 
         //Fyrtal
+        let td_p1f = document.getElementById("td-p1f");
         if (dice_no.includes(4) || dice_no.includes(5)) {
-            document.getElementById("td-p1f").style.backgroundColor = "lightgreen";
+            green(td_p1f);
         } else {
-            document.getElementById("td-p1f").style.backgroundColor = "silver";
+            silver(td_p1f);
         }
 
         //Small straight
@@ -145,29 +150,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }       
 
         //Kåk
+        let td_p1fh = document.getElementById("td-p1fh")
         if (dice_no.includes(2) && dice_no.includes(3)) {
-            document.getElementById("td-p1fh").style.backgroundColor = "lightgreen";
+            green(td_p1fh);
         } else {
-            document.getElementById("td-p1fh").style.backgroundColor = "silver";
+            green(td_p1fh);
         }
 
         //Chans
-        if (throws <= 2) {
-            document.getElementById("td-p1ch").style.backgroundColor = "lightgreen";
+        let td_p1ch = document.getElementById("td-p1ch");
+        let player1ch = document.getElementById("player1ch");
+        if (throws <= 2) {            
             let chance_sum = dice_array.reduce((a, b) => a + b, 0);
-            document.getElementById("player1chance").innerHTML = chance_sum;
-        } else {
-            document.getElementById("td-p1ch").style.backgroundColor = "silver";
-            document.getElementById("player1chance").innerHTML = null;
+            player1ch.innerHTML = chance_sum;
+            green(td_p1ch);
+            hide(player1ch, td_p1ch);
+        } else {            
+            player1ch.innerHTML = null;
+            silver(td_p1ch);
         } 
 
         //Yatzy
+        let td_p1y = document.getElementById("td-p1y")
+        let player1y = document.getElementById("player1y")
         if (dice_no.includes(5)) {
-            document.getElementById("td-p1y").style.backgroundColor = "lightgreen";
-            document.getElementById("player1yatzy").value = 50;
+            player1y.innerHTML = 50;
+            green(td_p1y);            
+            hide(player1y,td_p1y);
         } else {
-            document.getElementById("td-p1y").style.backgroundColor = "silver";
-            document.getElementById("player1yatzy").value = null;
+            player1y.innerHTML = null;
+            silver(td_p1y);
         }
     })
 });
