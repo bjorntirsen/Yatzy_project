@@ -72,11 +72,21 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
         //Funktion för att gömma checkboxarna+test innan 1:a slag
         if (throws <= 2) {
+
+            //nya koden 
+            let cb = document.getElementsByClassName("checkbox");
+            for(let cbs of cb) {
+               cbs.style.display ="flex";
+            }
+
+            /*
             document.getElementById("check1").style.display = "flex";
             document.getElementById("check2").style.display = "flex";
             document.getElementById("check3").style.display = "flex";
             document.getElementById("check4").style.display = "flex";
             document.getElementById("check5").style.display = "flex";
+            */
+
             document.getElementById("explaination").style.display = "flex";
         }
         //Funktioner för att highlighta möjliga rutor
