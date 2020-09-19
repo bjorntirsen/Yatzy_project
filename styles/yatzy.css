@@ -117,3 +117,9 @@ aside {
 .visible {
     opacity: 1;
 }
+.green {
+    background-color: lightgreen;
+}
+.silver {
+    background-color: silver;
+}

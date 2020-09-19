@@ -10,6 +10,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
             target.classList.remove("visible");
             target.classList.add("invisible")};
     }
+    //Funktion för att göra bakgrundsfärgen grön på möjliga fält
+    function green(target) {
+        target.style.backgroundColor = "lightgreen";
+    }
+    //Funktion för att ta bort det gröna
+    function silver(target) {
+        target.style.backgroundColor = "silver";
+    }
     //Funktioner som triggas vid ändring i fälten:
     window.addEventListener("change", function(event) {
         //Kod för att räkna ut summa från "p1" fälten
@@ -113,27 +121,27 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //Small straight
         let dice_no4 = dice_no.filter(numb => (numb === 1) == true);
         dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
+        let td_p1ss = document.getElementById("td-p1ss");
+        let player1ss = document.getElementById("player1ss");
         if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
-            let td_p1ss = document.getElementById("td-p1ss");
-            td_p1ss.style.backgroundColor = "lightgreen";
-            let player1ss = document.getElementById("player1ss");
             player1ss.innerHTML = "15";
+            green(td_p1ss);
             hide (player1ss, td_p1ss);
         } else {
-            document.getElementById("td-p1ls").style.backgroundColor = "silver";
-            document.getElementById("player1ls").innerHTML = null;
+            player1ss.innerHTML = null;
+            silver(td_p1ss);
         }  
                 
         //Large straight
+        let td_p1ls = document.getElementById("td-p1ls");
+        let player1ls = document.getElementById("player1ls");
         if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
-            let td_p1ls = document.getElementById("td-p1ls");
-            td_p1ls.style.backgroundColor = "lightgreen";
-            let player1ls = document.getElementById("player1ls");
             player1ls.innerHTML = "20";
+            green(td_p1ls);
             hide (player1ls, td_p1ls);
         } else {
-            document.getElementById("td-p1ls").style.backgroundColor = "silver";
-            document.getElementById("player1ls").innerHTML = null;
+            player1ls.innerHTML = null;
+            silver(td_p1ls);
         }       
 
         //Kåk
