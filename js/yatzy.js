@@ -2,13 +2,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //Funktion för att göra text osynlig förutom när musen pekar
     function hide(target, zone) {
         target.classList.add("invisible");
-        zone.onmouseover = function(){
+        zone.onmouseover = function() {
             target.classList.remove("invisible");
             target.classList.add("visible")
         };
-        zone.onmouseout = function(){
+        zone.onmouseout = function() {
             target.classList.remove("visible");
-            target.classList.add("invisible")};
+            target.classList.add("invisible")
+        };
     }
     //Funktion för att göra bakgrundsfärgen grön på möjliga fält
     function green(target) {
@@ -81,8 +82,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //Funktion för att gömma checkboxarna+text innan 1:a slag
         if (throws <= 2) {
             let cb = document.getElementsByClassName("checkbox");
-            for(let cbs of cb) {
-               cbs.style.display ="flex";
+            for (let cbs of cb) {
+                cbs.style.display = "flex";
             }
             document.getElementById("explaination").style.display = "flex";
         }
@@ -128,55 +129,60 @@ document.addEventListener("DOMContentLoaded", function(event) {
         dice_no5 = dice_no4.reduce((a, b) => a + b, 0);
         let td_p1ss = document.getElementById("td-p1ss");
         let player1ss = document.getElementById("player1ss");
-        if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6)==false)) {
+        if ((dice_no5 === 5) && (dice_array.includes(1)) && (dice_array.includes(6) == false)) {
             player1ss.innerHTML = "15";
             green(td_p1ss);
-            hide (player1ss, td_p1ss);
+            hide(player1ss, td_p1ss);
         } else {
             player1ss.innerHTML = null;
             silver(td_p1ss);
-        }  
-                
+        }
+
         //Large straight
         let td_p1ls = document.getElementById("td-p1ls");
         let player1ls = document.getElementById("player1ls");
-        if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1)==false)) {
+        if ((dice_no5 === 5) && (dice_array.includes(6)) && (dice_array.includes(1) == false)) {
             player1ls.innerHTML = "20";
             green(td_p1ls);
-            hide (player1ls, td_p1ls);
+            hide(player1ls, td_p1ls);
         } else {
             player1ls.innerHTML = null;
             silver(td_p1ls);
-        }       
+        }
 
         //Kåk
         let td_p1fh = document.getElementById("td-p1fh")
         if (dice_no.includes(2) && dice_no.includes(3)) {
+            let chance_sum = dice_array.reduce((a, b) => a + b, 0);
+            p1fh.innerHTML = chance_sum;
             green(td_p1fh);
+            hide(p1fh, td_p1fh);
         } else {
-            green(td_p1fh);
+            //green(td_p1fh);
+            p1fh.innerHTML = null;
+            silver(td_p1fh);
         }
 
         //Chans
         let td_p1ch = document.getElementById("td-p1ch");
         let player1ch = document.getElementById("player1ch");
-        if (throws <= 2) {            
+        if (throws <= 2) {
             let chance_sum = dice_array.reduce((a, b) => a + b, 0);
             player1ch.innerHTML = chance_sum;
             green(td_p1ch);
             hide(player1ch, td_p1ch);
-        } else {            
+        } else {
             player1ch.innerHTML = null;
             silver(td_p1ch);
-        } 
+        }
 
         //Yatzy
         let td_p1y = document.getElementById("td-p1y")
         let player1y = document.getElementById("player1y")
         if (dice_no.includes(5)) {
             player1y.innerHTML = 50;
-            green(td_p1y);            
-            hide(player1y,td_p1y);
+            green(td_p1y);
+            hide(player1y, td_p1y);
         } else {
             player1y.innerHTML = null;
             silver(td_p1y);
