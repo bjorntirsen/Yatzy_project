@@ -128,9 +128,8 @@ input {
 .visible {
     opacity: 1;
 }
-/* Chat styles */
+
 .messageBox {
-    /* float: left; */
     min-width: 550px;
 }
 #btnSend {
@@ -167,13 +166,10 @@ div {
 }
 
 spanChat {
-    /* border: 1px solid yellow; */
     background-color: rgb(131, 131, 223);
     float: right;
 }
 
 spanChat:hover {
-    /* border: 1px solid yellow; */
     cursor: pointer;
-    /* float: right; */
 }
