@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="styles/yatzy.css">
-    <link rel="stylesheet" href="styles/chatt.css">
-    <script src="js/chatt.js"></script>
 </head>
 
 <body>
     <section class="yatzy-main">
         <div class="logo-container">
-            <img src="images/yatzy_html5logo.png" alt="yatzy logo">
+            <img id="logo-img" src="images/yatzy_html5logo.png" alt="yatzy logo">
         </div>
         <div>
             <table class="yatzy-table">
@@ -156,16 +154,7 @@
         </div>
     </section>
 
-    <table class="messageBox">
-        <tr class="messages">
-            <td class="boxDescription">Chatt</td>
-            <td class="messageField"><input type="text" id="inputText">
-                <button type="button" id="btnSend">Skicka</button>
-                <ul id="ul_list"></ul></td>
-        </tr>        
-    </table>
-
-    <aside id="dice-section">
+    <section id="dice-section">
         <div id="dice-box">
             <div class="dice-container">
                 <img class="dice" id="dice1" src="images/q.PNG" alt="Dice1">
@@ -200,7 +189,18 @@
                 <button id="rollButton">Slå tärningar</button>
             </div>
         </div>
-    </aside>
+    </section>
+
+    <section class="chat-section">
+        <table class="messageBox">
+            <tr class="messages">
+                <td class="boxDescription">Chatt</td>
+                <td class="messageField"><input type="text" id="inputText">
+                    <button type="button" id="btnSend">Skicka</button>
+                    <ul id="ul_list"></ul></td>
+            </tr>        
+        </table>
+    </section>    
 
     <!-- <section class="login-box ">
         <div class="login-container ">
@@ -212,21 +212,6 @@
 
             <button type="submit ">Login</button>
         </div>
-    </section>
-
-    <section class="chat-window ">
-        <div class="text-feed ">
-            <p>
-                Player1: Bla bla bla
-            </p>
-            <p>
-                Player2: Bra? Blabla!
-            </p>
-        </div>
-        <form class="input " action=" ">
-            <p><input type="text " placeholder="Type your message here "></p>
-            <button class="send-button ">Send</button>
-        </form>
     </section> -->
 
     <script src="js/yatzy.js "></script>
