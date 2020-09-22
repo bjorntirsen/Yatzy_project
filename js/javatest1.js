@@ -15,9 +15,7 @@ class Dice_set {
         for (let i = 0; i < size; i++) {
             this.dice.push(new One_dice());
         }
-        
         this.calculateDiceValues();
-        console.log("innan fel: "+this.dice_no);
         this.set_sum = this.calculateDiceSetSum(this.dice);
     }
 
@@ -34,11 +32,43 @@ class Dice_set {
     }
 
     checkPair() {
-        if (this.dice_no.includes(2) || this.dice_no.includes(3) || this.dice_no.includes(4) || this.dice_no.includes(5)) {
+        let twos = 0;
+        let threes = 0;
+        let fours = 0;
+        let fives = 0;
+        let sixes = 0;
+        if (this.dice_no.includes(1) || this.dice_no.includes(2) || this.dice_no.includes(3) || this.dice_no.includes(4) || this.dice_no.includes(5) || this.dice_no.includes(6)) {
             for (let i = 6; i > 0; i--) {
-                if (this.dice_no[i] = (2 || 3 || 4 || 5)) {
-                    return i * 2;
+                if (this.dice_no[i] == (2 || 3 || 4 || 5)) {
+                    twos = i * 2;
                 }
+                if (this.dice_no[i] == (2 || 3 || 4 || 5)) {
+                    threes = i * 2;
+                }
+                if (this.dice_no[i] == (2 || 3 || 4 || 5)) {
+                    fours = i * 2;
+                }
+                if (this.dice_no[i] == (2 || 3 || 4 || 5)) {
+                    fives = i * 2;
+                }
+                if (this.dice_no[i] == (2 || 3 || 4 || 5)) {
+                    sixes = i * 2;
+                }
+            }
+            if (twos > 0) {
+                return twos;
+            }
+            else if (threes > 0){
+                return threes;
+            }
+            else if (fours > 0) {
+                return fours;
+            }
+            else if (fives > 0) {
+                return fives;
+            }
+            else if (sixes > 0) {
+                return sixes;
             }
         } else return false;
     }
@@ -68,11 +98,11 @@ class Dice_set {
         } else return false;
     }    
 }
+
+
 for (let i = 0; i < 10; i++) {
     let dece = new Dice_set();
     console.log(dece);
-    console.log("values "+dece.dice_no);
-    console.log("summa "+dece.set_sum);
     console.log("pair "+dece.checkPair());
     console.log("2pairs "+dece.checkTwoPairs());
     console.log("Threes "+dece.checkThreeOfAKind());
