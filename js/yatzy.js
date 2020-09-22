@@ -1,4 +1,37 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+    
+    class One_dice{
+        constructor(){
+            function randOneSix() {
+                this.value = Math.floor(Math.random() * 6) + 1;
+            }
+        }
+    }
+
+    class Dice_set{
+        constructor(size=5){
+            this.dice = [];
+            this.dice_no = [0,0,0,0,0,0,0];
+
+            for(let i=0; i<size; i++){
+                this.dice.push(new One_dice());
+            }
+            this.calculateDiceValues();
+        }
+
+        calculateDiceValues(){
+            this.dice.map(current_value=> {
+                this.dice_values[current_value.value]++;
+            })
+        }
+
+        calculateDiceSetSum(){
+            return this.reduce((previous_value, current_dice) => {
+                return previous_value+current_dice;
+            }, 0);
+        }
+    }
+    
     //Funktion för att göra text osynlig förutom när musen pekar
     function hide(target, zone) {
         target.classList.add("invisible");
