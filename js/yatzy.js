@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
             }
             
             this.calculateDiceValues();
-            console.log("innan fel: "+this.dice_no);
             this.set_sum = this.calculateDiceSetSum(this.dice);
         }
     
@@ -70,7 +69,19 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } else return false;
         }    
     }
-    
+
+    class Game {
+        constructor() {
+
+        }
+    }
+
+    class Player {
+        constructor() {
+            
+        }
+    }
+
     //Funktion för att göra text osynlig förutom när musen pekar
     function hide(target, zone) {
         target.classList.add("invisible");
@@ -90,6 +101,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
     //Funktion för att ta bort det gröna
     function silver(target) {
         target.style.backgroundColor = "silver";
+    }
+    //
+    function randOneSix() {
+        return Math.floor(Math.random() * 6) + 1;
     }
     //Funktioner som triggas vid ändring i fälten:
     window.addEventListener("change", function(event) {
@@ -112,17 +127,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
         document.getElementById("player1bonus").innerHTML = bonus;
     });
 
-    //Tärningarna:
-    // En funktion som slumpar fram ett tal mellan 1-6
-    function randOneSix() {
-        return Math.floor(Math.random() * 6) + 1;
-    }
+    //The dices
+    //Creates a set of new dice
+    let current_set = new Dice_set();
     //Antal kast funktion
     let throwsField = document.getElementById("throwsLeft")
     let throws = 3;
-    //Array med värdet på de fem tärningarna
-    let dice_array = [0, 0, 0, 0, 0];
-
     //Funktioner som triggas när man trycker på knappen:
     document.getElementById("rollButton").
     addEventListener("click", function(e) {
@@ -131,18 +141,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
             //Skapar en array med de ocheckade boxarnas index
             unchecked_arr = check_arr.filter(box => box.checked == false);
             let unchecked_arr2 = unchecked_arr.map(a => a.value);
-            //Loop för att "hålla" förkryssade tärningar
-            //Kanske skulle kunna göra en "for of" loop här under istället 
-            for (let i = 0; i <= unchecked_arr2.length - 1; i++) {
-                let tmp = 0;
-                tmp = randOneSix();
-                document.getElementById("dice" + unchecked_arr2[i]).src =
+            let tmp = 0;
+            //Checking the checkboxes.
+            // means no checked dices
+            //Converting array of strings to numbers
+            let unchecked_arr3 = unchecked_arr2.map(function(v) {
+                return parseInt(v, 10);
+                });            
+            for (i=0; i<unchecked_arr2.length; i++) {
+                //Change value of uncheced dice in dice set
+                let tmp2 = unchecked_arr3[i]-1;
+                current_set.dice[tmp2].value = randOneSix();
+            }     
+            for (let i = 1; i <= 5; i++) {                    
+                tmp = current_set.dice[i-1].value;
+                document.getElementById("dice" + i).src =
                     "images/" + tmp + ".png";
-                dice_array[unchecked_arr2[i] - 1] = tmp;
             }
-            //Array med antalet av varje tärning
-            let dice_no = [0, 0, 0, 0, 0, 0, 0];
-            dice_array.forEach((a) => dice_no[a]++);
             //Antal kast minskas efter varje kast 
             //throws--; <- växla till denna för verklig funktion
             throws = 2; //detta är för att testa kod
@@ -160,10 +175,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 document.getElementById("explaination").style.display = "flex";
             }
 
-            //Funktioner för att highlighta möjliga rutor
+            /* //Funktioner för att highlighta möjliga rutor
             //Par
             let td_p1p = document.getElementById("td-p1p");
-            if (dice_no.includes(2) || dice_no.includes(3) || dice_no.includes(4) || dice_no.includes(5)) {
+            current_set.checkPair()
+            if (current_set.) {
                 green(td_p1p);
             } else {
                 silver(td_p1p);
@@ -258,7 +274,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             } else {
                 player1y.innerHTML = null;
                 silver(td_p1y);
-            }
+            } */
         })
         //Chatt script
     let list = document.getElementById("ul_list");
