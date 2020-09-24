@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function(event) {
-
+    //Klass för a
     class One_dice {
         constructor() {
             this.value = this.new_Value();
@@ -70,18 +70,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }    
     }
 
-    class Game {
-        constructor() {
-
-        }
-    }
-
-    class Player {
-        constructor() {
-            
-        }
-    }
-
     //Funktion för att göra text osynlig förutom när musen pekar
     function hide(target, zone) {
         target.classList.add("invisible");
@@ -111,8 +99,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
         //Player 1
         //Kod för att räkna ut summa från "p1" fälten
         //denna kod kan förenklas senare
+        //Skapar först en HTML collection med allt som har
+        //klassnamet "p1"
         let arr1 = document.getElementsByClassName('p1');
+        //Gör om HTML collection till array
         let arr2 = Array.from(arr1);
+        //Använder map funktion för att göra så att
+        //arrayen endast innehåller nummervärden
+        //"|| 0" är så att det inte ska bli fel för
+        //fälten som inte har något innehåll än
         let arr3 = arr2.map((element) => {
             return parseInt(element.value) || 0
         });
