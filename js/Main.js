@@ -240,7 +240,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 silver(td_p1y);
             } */
         })
-        //Chatt script
+    //Chatt script
     let list = document.getElementById("ul_list");
     let btnSend = document.getElementById("btnSend");
 
@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         let spanRow = document.createElement("spanChat")
         divRow.appendChild(spanRow);
-        spanRow.innerHTML = "TA BORT";
+        spanRow.innerHTML = "Remove";
 
         let input = document.getElementById("inputText");
         listRow.innerHTML = input.value;
