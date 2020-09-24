@@ -108,11 +108,12 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
     //Funktioner som triggas vid ändring i fälten:
     window.addEventListener("change", function(event) {
+        //Player 1
         //Kod för att räkna ut summa från "p1" fälten
         //denna kod kan förenklas senare
         let arr1 = document.getElementsByClassName('p1');
         let arr2 = Array.from(arr1);
-        let arr3 = arr2.map((element, index, array) => {
+        let arr3 = arr2.map((element) => {
             return parseInt(element.value) || 0
         });
         //Kod för att skriva ut summan av "p1" fälten
@@ -125,6 +126,29 @@ document.addEventListener("DOMContentLoaded", function(event) {
         let bonus = 0;
         if (arrsum >= 63) bonus = 50;
         document.getElementById("player1bonus").innerHTML = bonus;
+        //Player 2
+        //Kod för att räkna ut summa från "p2" fälten
+        //denna kod kan förenklas senare
+        let arr4 = document.getElementsByClassName('p2');
+        let arr5 = Array.from(arr4);
+        let arr6 = arr5.map((element) => {
+            return parseInt(element.value) || 0
+        });
+        //Kod för att skriva ut summan av "p1" fälten
+        let arrsum2 = arr6.reduce((a, b) => {
+            return a + b;
+        }, 0);
+        document.getElementById("p2sum").innerHTML = arrsum2;
+        //Kod för att skriva ut 50 bonus poäng om summan av 
+        //"p1" fälten är 63 eller mer
+        /* let bonus = 0;
+        if (arrsum >= 63) bonus = 50;
+        document.getElementById("player1bonus").innerHTML = bonus;
+        //Kod för att skriva ut totalsumman längst ner
+        let totalsum = arr3.reduce((a, b) => {
+            return a + b;
+        }, 0);
+        document.getElementById("p1sum").innerHTML = arrsum; */
     });
 
     //The dices
