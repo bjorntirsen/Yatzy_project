@@ -1,2 +1,2 @@
 # Yatzy_project
-Project under Webb20 Frontend 1
+Group Project under Webb20 Frontend 1
